@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hypothesis testing for coefficients in lm objects. — beta_test • model</title>
+<title>Plot observations in the coordinate plane PC1-PC2. — plot_obspc • model</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,9 @@
 
 
 
-<meta property="og:title" content="Hypothesis testing for coefficients in lm objects. — beta_test" />
+<meta property="og:title" content="Plot observations in the coordinate plane PC1-PC2. — plot_obspc" />
 
-<meta property="og:description" content="The beta_test function performs a hypothesis test for each coefficient when
-the reference value is different to zero." />
+<meta property="og:description" content="This function plots the observations in the coordinate plane PC1-PC2." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -97,72 +96,54 @@ the reference value is different to zero." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Hypothesis testing for coefficients in lm objects.</h1>
+    <h1>Plot observations in the coordinate plane PC1-PC2.</h1>
     
-    <div class="hidden name"><code>beta_test.Rd</code></div>
+    <div class="hidden name"><code>plot_obspc.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>The <code>beta_test</code> function performs a hypothesis test for each coefficient when
-the reference value is different to zero.</p>
+    <p>This function plots the observations in the coordinate plane PC1-PC2.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>beta_test</span>(<span class='no'>object</span>, <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"two.sided"</span>, <span class='st'>"less"</span>, <span class='st'>"greater"</span>), <span class='no'>parm</span>,
-  <span class='no'>ref.value</span>)</pre>
+    <pre class="usage"><span class='fu'>plot_obspc</span>(<span class='no'>mod</span>, <span class='kw'>lchar</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>A <a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm</a> object.</p></td>
+      <th>mod</th>
+      <td><p>a prcomp or princomp object obtained from <code><a href='https://www.rdocumentation.org/packages/stats/topics/prcomp'>prcomp</a></code> or <code><a href='https://www.rdocumentation.org/packages/stats/topics/princomp'>princomp</a></code> functions.</p></td>
     </tr>
     <tr>
-      <th>alternative</th>
-      <td><p>a character string specifying the alternative
-hypothesis, must be one of "two.sided" (default), "greater" or
-"less". You can specify just the initial letter.</p></td>
+      <th>lchar</th>
+      <td><p>the number of first characters to identify points.</p></td>
     </tr>
     <tr>
-      <th>parm</th>
-      <td><p>is a vector with the coefficient names.</p></td>
+      <th>pch</th>
+      <td><p>an integer specifying a symbol or a single character to be used as the default in plotting points.</p></td>
     </tr>
     <tr>
-      <th>ref.value</th>
-      <td><p>is a numeric vector with the reference values
-to perform the test \(Ho: \beta_j = \beta_{j0}\).</p></td>
+      <th>...</th>
+      <td><p>arguments to be passed to methods, such as graphical parameters (see par).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The <code>beta_test</code> function returns a matrix with the estimated coefficient,
-standard error, t value and p-value.</p>
+    <p>The function returns a list with two elements, coordinate points for first
+and second dimensions.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># Linear regression</span>
-<span class='no'>mod1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm</a></span>(<span class='no'>dist</span> ~ <span class='no'>speed</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>cars</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod1</span>)</div><div class='output co'>#&gt; (Intercept)       speed 
-#&gt;  -17.579095    3.932409 </div><div class='input'><span class='co'>#</span>
-<span class='co'># to test beta_speed = 3 vs beta_speed &lt; 3</span>
-<span class='fu'>beta_test</span>(<span class='kw'>object</span><span class='kw'>=</span><span class='no'>mod1</span>, <span class='kw'>parm</span><span class='kw'>=</span><span class='st'>'speed'</span>, <span class='kw'>ref.value</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>alternative</span><span class='kw'>=</span><span class='st'>'less'</span>)</div><div class='output co'>#&gt;       Estimate Std.Err t value Pr(&gt;t)
-#&gt; speed  3.93241 0.41551   2.244 0.9853</div><div class='input'><span class='co'>#-------------</span>
-<span class='co'># Multiple linear regression</span>
-<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm</a></span>(<span class='no'>mpg</span> ~ <span class='no'>hp</span> + <span class='no'>wt</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>mtcars</span>)
-<span class='co'>#</span>
-<span class='co'># to test separately</span>
-<span class='co'># beta_hp = -0.05 vs beta_hp &lt; -0.05 and</span>
-<span class='co'># beta_wt = -3 vs beta_wt != -3</span>
-<span class='no'>alternative</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"less"</span>, <span class='st'>"two.sided"</span>)
-<span class='no'>ref.value</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(-<span class='fl'>0.05</span>, -<span class='fl'>3</span>)
-<span class='no'>parm</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"hp"</span>, <span class='st'>"wt"</span>)
-<span class='fu'>beta_test</span>(<span class='no'>mod2</span>, <span class='no'>alternative</span>, <span class='no'>parm</span>, <span class='no'>ref.value</span>)</div><div class='output co'>#&gt;      Estimate    Std.Err t value Pr(&gt;t)
-#&gt; hp -0.0317729  0.0090297  2.0186 0.9736
-#&gt; wt -3.8778307  0.6327335 -1.3874 0.1759</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># For a prcomp object</span>
+<span class='no'>pca1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/prcomp'>prcomp</a></span>(<span class='no'>USArrests</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>TRUE</span>)  <span class='co'># Example</span>
+<span class='fu'>plot_obspc</span>(<span class='no'>pca1</span>)</div><div class='img'><img src='plot_obspc-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Default plot</span>
+<span class='fu'>plot_obspc</span>(<span class='no'>pca1</span>, <span class='kw'>lchar</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>col</span><span class='kw'>=</span><span class='st'>'blue'</span>, <span class='kw'>pch</span><span class='kw'>=</span><span class='fl'>8</span>)  <span class='co'># Customized plot</span></div><div class='img'><img src='plot_obspc-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>#</span>
+<span class='co'># For a princomp object</span>
+<span class='no'>pca2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/princomp'>princomp</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>USArrests</span>, <span class='kw'>cor</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='fu'>plot_obspc</span>(<span class='no'>pca2</span>, <span class='kw'>col</span><span class='kw'>=</span><span class='st'>'red'</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(-<span class='fl'>4</span>, <span class='fl'>4</span>), <span class='kw'>xlim</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(-<span class='fl'>4</span>, <span class='fl'>4</span>))</div><div class='img'><img src='plot_obspc-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

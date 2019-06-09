@@ -8,7 +8,7 @@
 #'  hypothesis, must be one of "two.sided" (default), "greater" or
 #'  "less". You can specify just the initial letter.
 #' @param ref.value is a numeric vector with the reference values
-#'  to perform the test \eqn{Ho: \betaj = \betajo}.
+#'  to perform the test \eqn{Ho: \beta_j = \beta_{j0}}.
 #' @param parm is a vector with the coefficient names.
 #' @examples
 #'

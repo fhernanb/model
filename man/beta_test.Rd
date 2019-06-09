@@ -17,7 +17,7 @@ hypothesis, must be one of "two.sided" (default), "greater" or
 \item{parm}{is a vector with the coefficient names.}
 
 \item{ref.value}{is a numeric vector with the reference values
-to perform the test \eqn{Ho: \betaj = \betajo}.}
+to perform the test \eqn{Ho: \beta_j = \beta_{j0}}.}
 }
 \value{
 The \code{beta_test} function returns a matrix with the estimated coefficient,
