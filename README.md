@@ -1,3 +1,7 @@
+[![Travis build status](https://travis-ci.org/fhernanb/model.svg?branch=master)](https://travis-ci.org/fhernanb/model)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version-ago/model)](https://cran.r-project.org/package=model)
+[![CRAN\_Download\_Badge](http://cranlogs.r-pkg.org/badges/model)](https://cran.r-project.org/package=model) 
+
 # model
 
 An R package with useful functions for modeling regresion.
