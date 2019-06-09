@@ -2,7 +2,7 @@
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version-ago/model)](https://cran.r-project.org/package=model)
 [![CRAN\_Download\_Badge](http://cranlogs.r-pkg.org/badges/model)](https://cran.r-project.org/package=model) 
 
-# model
+# model <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
 An R package with useful functions for modeling regresion.
 
