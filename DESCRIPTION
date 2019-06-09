@@ -1,5 +1,5 @@
 Package: model
-Title: This package has useful functions for modeling regresion
+Title: Model package contains useful functions for modeling regresion
 Version: 0.1.0
 Authors@R: c(
     person("Freddy", "Hernandez", , "fhernanb@unal.edu.co", role = c("aut", "cre"), 
@@ -8,7 +8,7 @@ Authors@R: c(
       comment = c(ORCID = "0000-0003-3062-1820"))
   )
 Maintainer: Freddy Hernandez <fhernanb@unal.edu.co>
-Description: This package has useful functions for modeling regresion.
+Description: Model package contains useful functions for modeling regresion.
 License: GPL-3
 URL: https://fhernanb.github.io/model
 BugReports: https://github.com/fhernanb/model/issues
