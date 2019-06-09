@@ -1,16 +1,14 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # model
 
-The goal of model package is to provide useful functions for modeling
-regresion.
+An R package with useful functions for modeling regresion.
 
-## Installation
+You can visit the [package website](https://fhernanb.github.io/model/index.html) to explore the vignettes (articles) and function reference. 
 
-You can install the released version of model from
-[CRAN](https://CRAN.R-project.org) with:
+### Installation
 
-``` r
-install.packages("model")
+* Install latest development version from GitHub using the code given below:
+
+```r
+if (!require('devtools')) install.packages('devtools')
+devtools::install_github('fhernanb/model', force=TRUE)
 ```
