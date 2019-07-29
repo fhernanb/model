@@ -1,4 +1,4 @@
-#' Estimated parameters.
+#' Estimation parameters for gamlss model.
 #' 
 #' This function estimates parameters like mean, standard deviation for a gamlss object. This function is very useful when the mean or standard deviation do not match with mu, sigma or some function of mu and/or sigma.
 #' 
@@ -20,6 +20,10 @@
 #' # Obtaining the means
 #' m1 <- fitted(mod, what="mu")
 #' m2 <- estimated_parameter(mod, m=10000, fun="mean")
+#' 
+#' # To explore the first 5 estimated means
+#' m1[1:5]
+#' 
 #' # Obtaining the standard deviations
 #' s1 <- fitted(mod, what="sigma")
 #' s2 <- estimated_parameter(mod, m=10000, fun="sd")
@@ -41,6 +45,10 @@
 #' # Obtaining the means
 #' m1 <- fitted(mod, what="mu")
 #' m2 <- estimated_parameter(mod, m=10000, fun="mean")
+#' 
+#' # To explore the first 5 estimated means
+#' m1[1:5]
+#' 
 #' # Obtaining the standard deviations
 #' s1 <- fitted(mod, what="sigma")
 #' s2 <- estimated_parameter(mod, m=10000, fun="sd")

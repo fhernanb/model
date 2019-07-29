@@ -2,7 +2,7 @@
 % Please edit documentation in R/estimated_parameter.R
 \name{estimated_parameter}
 \alias{estimated_parameter}
-\title{Estimated parameters.}
+\title{Estimation parameters for gamlss model.}
 \usage{
 estimated_parameter(mod, fun = "mean", m = 100)
 }
@@ -36,6 +36,10 @@ coef(mod, "sigma")
 # Obtaining the means
 m1 <- fitted(mod, what="mu")
 m2 <- estimated_parameter(mod, m=10000, fun="mean")
+
+# To explore the first 5 estimated means
+m1[1:5]
+
 # Obtaining the standard deviations
 s1 <- fitted(mod, what="sigma")
 s2 <- estimated_parameter(mod, m=10000, fun="sd")
@@ -57,6 +61,10 @@ coef(mod, "sigma")
 # Obtaining the means
 m1 <- fitted(mod, what="mu")
 m2 <- estimated_parameter(mod, m=10000, fun="mean")
+
+# To explore the first 5 estimated means
+m1[1:5]
+
 # Obtaining the standard deviations
 s1 <- fitted(mod, what="sigma")
 s2 <- estimated_parameter(mod, m=10000, fun="sd")

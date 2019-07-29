@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Estimated parameters. — estimated_parameter • model</title>
+<title>Estimation parameters for gamlss model. — estimated_parameter • model</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="Estimated parameters. — estimated_parameter" />
+<meta property="og:title" content="Estimation parameters for gamlss model. — estimated_parameter" />
 
 <meta property="og:description" content="This function estimates parameters like mean, standard deviation for a gamlss object. This function is very useful when the mean or standard deviation do not match with mu, sigma or some function of mu and/or sigma." />
 
@@ -96,7 +96,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Estimated parameters.</h1>
+    <h1>Estimation parameters for gamlss model.</h1>
     
     <div class="hidden name"><code>estimated_parameter.Rd</code></div>
     </div>
@@ -153,6 +153,10 @@
 <span class='co'># Obtaining the means</span>
 <span class='no'>m1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/fitted.values'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)
 <span class='no'>m2</span> <span class='kw'>&lt;-</span> <span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>m</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>fun</span><span class='kw'>=</span><span class='st'>"mean"</span>)
+
+<span class='co'># To explore the first 5 estimated means</span>
+<span class='no'>m1</span>[<span class='fl'>1</span>:<span class='fl'>5</span>]</div><div class='output co'>#&gt;         1         2         3         4         5 
+#&gt; -5.444140  6.625064  2.884228 -4.219602 -6.618908 </div><div class='input'>
 <span class='co'># Obtaining the standard deviations</span>
 <span class='no'>s1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/fitted.values'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)
 <span class='no'>s2</span> <span class='kw'>&lt;-</span> <span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>m</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>fun</span><span class='kw'>=</span><span class='st'>"sd"</span>)
@@ -174,6 +178,10 @@
 <span class='co'># Obtaining the means</span>
 <span class='no'>m1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/fitted.values'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)
 <span class='no'>m2</span> <span class='kw'>&lt;-</span> <span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>m</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>fun</span><span class='kw'>=</span><span class='st'>"mean"</span>)
+
+<span class='co'># To explore the first 5 estimated means</span>
+<span class='no'>m1</span>[<span class='fl'>1</span>:<span class='fl'>5</span>]</div><div class='output co'>#&gt;           1           2           3           4           5 
+#&gt; 39.81780060  0.14510088  0.04182632  0.12608504 54.55673776 </div><div class='input'>
 <span class='co'># Obtaining the standard deviations</span>
 <span class='no'>s1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/fitted.values'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)
 <span class='no'>s2</span> <span class='kw'>&lt;-</span> <span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>m</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>fun</span><span class='kw'>=</span><span class='st'>"sd"</span>)
