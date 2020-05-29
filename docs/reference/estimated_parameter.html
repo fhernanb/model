@@ -6,23 +6,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Estimation parameters for gamlss model. — estimated_parameter • model</title>
+<title>Estimation of mean and/or variance for models fitted with gamlss. — estimated_parameter • model</title>
+
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,12 +45,11 @@
 
 
 
-<meta property="og:title" content="Estimation parameters for gamlss model. — estimated_parameter" />
 
+<meta property="og:title" content="Estimation of mean and/or variance for models fitted with gamlss. — estimated_parameter" />
 <meta property="og:description" content="This function estimates parameters like mean, standard deviation for a gamlss object. This function is very useful when the mean or standard deviation do not match with mu, sigma or some function of mu and/or sigma." />
-
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -49,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -73,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -81,9 +96,13 @@
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/fhernanb/model/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -91,24 +110,23 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Estimation parameters for gamlss model.</h1>
-    
+    <h1>Estimation of mean and/or variance for models fitted with gamlss.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/fhernanb/model/blob/master/R/estimated_parameter.R'><code>R/estimated_parameter.R</code></a></small>
     <div class="hidden name"><code>estimated_parameter.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
     <p>This function estimates parameters like mean, standard deviation for a gamlss object. This function is very useful when the mean or standard deviation do not match with mu, sigma or some function of mu and/or sigma.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>m</span> <span class='kw'>=</span> <span class='fl'>100</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -125,87 +143,90 @@
       <td><p>a number to indicate the number of observations to simulate, by default its values is 100.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>estimated_parameter</code> function returns a vector.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The function obtains the fitted values for mu, sigma, nu and tau. The functions simulates m observations and then it obtains the mean/fun defined by the user.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Example for NOrmal regression ------------------------</span>
-<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>50</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>)
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>, <span class='kw'>mean</span><span class='kw'>=</span>-<span class='fl'>5</span> + <span class='fl'>10</span> * <span class='no'>x</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='fl'>1</span> + <span class='fl'>2</span> * <span class='no'>x</span>))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>gamlss</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: splines</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: gamlss.data</span></div><div class='output co'>#&gt; <span class='message'></span>
+    <pre class="examples"><div class='input'>
+<span class='co'># Example for NOrmal regression ------------------------</span>
+<span class='co'># Here E(y) = mu and Var(y)= sigma</span>
+<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>7</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>)
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>, <span class='kw'>mean</span><span class='kw'>=</span>-<span class='fl'>5</span> + <span class='fl'>10</span> * <span class='no'>x</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fl'>1</span> + <span class='fl'>2</span> * <span class='no'>x</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>gamlss</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: splines</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: gamlss.data</span></div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: 'gamlss.data'</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from 'package:datasets':</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    sleep</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: gamlss.dist</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: MASS</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: nlme</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: parallel</span></div><div class='output co'>#&gt; <span class='message'> **********   GAMLSS Version 5.1-4  ********** </span></div><div class='output co'>#&gt; <span class='message'>For more on GAMLSS look at http://www.gamlss.org/</span></div><div class='output co'>#&gt; <span class='message'>Type gamlssNews() to see new features/changes/bug fixes.</span></div><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>y</span> ~ <span class='no'>x</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='no'>x</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>NO</span>)</div><div class='output co'>#&gt; GAMLSS-RS iteration 1: Global Deviance = 340.4941 
-#&gt; GAMLSS-RS iteration 2: Global Deviance = 339.6621 
-#&gt; GAMLSS-RS iteration 3: Global Deviance = 339.661 
-#&gt; GAMLSS-RS iteration 4: Global Deviance = 339.661 </div><div class='input'><span class='co'># To explore the coefficients</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept)           x 
-#&gt;   -6.737415   16.015761 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)           x 
-#&gt;    1.108047    1.776101 </div><div class='input'>
+#&gt; <span class='message'>    sleep</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: gamlss.dist</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: MASS</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: nlme</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: parallel</span></div><div class='output co'>#&gt; <span class='message'> **********   GAMLSS Version 5.1-6  ********** </span></div><div class='output co'>#&gt; <span class='message'>For more on GAMLSS look at http://www.gamlss.org/</span></div><div class='output co'>#&gt; <span class='message'>Type gamlssNews() to see new features/changes/bug fixes.</span></div><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span>(<span class='no'>y</span> ~ <span class='no'>x</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='no'>x</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>NO</span>)</div><div class='output co'>#&gt; GAMLSS-RS iteration 1: Global Deviance = 43.4364 
+#&gt; GAMLSS-RS iteration 2: Global Deviance = 35.2613 
+#&gt; GAMLSS-RS iteration 3: Global Deviance = 34.1276 
+#&gt; GAMLSS-RS iteration 4: Global Deviance = 34.0948 
+#&gt; GAMLSS-RS iteration 5: Global Deviance = 34.0943 </div><div class='input'>
 <span class='co'># Obtaining the means</span>
-<span class='no'>m1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/fitted.values'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)
+<span class='no'>m1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/fitted.values.html'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)
 <span class='no'>m2</span> <span class='kw'>&lt;-</span> <span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>m</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>fun</span><span class='kw'>=</span><span class='st'>"mean"</span>)
-
-<span class='co'># To explore the first 5 estimated means</span>
-<span class='no'>m1</span>[<span class='fl'>1</span>:<span class='fl'>5</span>]</div><div class='output co'>#&gt;         1         2         3         4         5 
-#&gt; -5.444140  6.625064  2.884228 -4.219602 -6.618908 </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='no'>m1</span>, <span class='no'>m2</span>) <span class='co'># Comparing the estimated means</span></div><div class='output co'>#&gt;            m1         m2
+#&gt; 1 -6.09961525 -6.0990137
+#&gt; 2  5.96700504  9.0397923
+#&gt; 3  2.22696999  2.6019221
+#&gt; 4 -4.87533943 -4.8755479
+#&gt; 5 -7.27413102 -7.2749168
+#&gt; 6  0.07543462  0.1363465
+#&gt; 7  0.57796394  0.4918223</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span>(<span class='no'>m1</span>, <span class='no'>m2</span>)</div><div class='output co'>#&gt; [1] 0.9899216</div><div class='input'>
 <span class='co'># Obtaining the standard deviations</span>
-<span class='no'>s1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/fitted.values'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)
+<span class='no'>s1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/fitted.values.html'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)
 <span class='no'>s2</span> <span class='kw'>&lt;-</span> <span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>m</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>fun</span><span class='kw'>=</span><span class='st'>"sd"</span>)
-
-<span class='co'># Comparing the estimated means</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/cor'>cor</a></span>(<span class='no'>m1</span>, <span class='no'>m2</span>)</div><div class='output co'>#&gt; [1] 0.9999088</div><div class='input'><span class='co'># Comparing the estimated standard deviations</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/cor'>cor</a></span>(<span class='no'>s1</span>, <span class='no'>s2</span>)</div><div class='output co'>#&gt; [1] 0.9998705</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='no'>s1</span>, <span class='no'>s2</span>) <span class='co'># Comparing the estimated standard deviations</span></div><div class='output co'>#&gt;             s1           s2
+#&gt; 1   0.13810096   0.13986106
+#&gt; 2 276.18534671 274.26679377
+#&gt; 3  26.18534313  26.31902698
+#&gt; 4   0.29861774   0.29864206
+#&gt; 5   0.06590076   0.06603477
+#&gt; 6   6.75264134   6.75616393
+#&gt; 7   9.26719010   9.29111948</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span>(<span class='no'>s1</span>, <span class='no'>s2</span>)</div><div class='output co'>#&gt; [1] 0.9999994</div><div class='input'>
 <span class='co'># Example for GAmma regression --------------------------</span>
-<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>50</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>)
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>rGA</span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(-<span class='fl'>5</span> + <span class='fl'>10</span> * <span class='no'>x</span>), <span class='kw'>sigma</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(-<span class='fl'>1</span> + <span class='fl'>2</span> * <span class='no'>x</span>))
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/gamlss/topics/gamlss'>gamlss</a></span>(<span class='no'>y</span> ~ <span class='no'>x</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='no'>x</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>GA</span>)</div><div class='output co'>#&gt; GAMLSS-RS iteration 1: Global Deviance = -9.4469 
-#&gt; GAMLSS-RS iteration 2: Global Deviance = -17.5708 
-#&gt; GAMLSS-RS iteration 3: Global Deviance = -17.6536 
-#&gt; GAMLSS-RS iteration 4: Global Deviance = -17.6538 </div><div class='input'><span class='co'># To explore the coefficients</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='st'>"mu"</span>)</div><div class='output co'>#&gt; (Intercept)           x 
-#&gt;   -5.095443    9.634598 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>, <span class='st'>"sigma"</span>)</div><div class='output co'>#&gt; (Intercept)           x 
-#&gt;   -1.026522    2.093336 </div><div class='input'>
+<span class='co'># Here E(y) = mu and Var(y)= sigma^2 mu^2</span>
+<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>7</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>)
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>rGA</span>(<span class='kw'>n</span><span class='kw'>=</span><span class='no'>n</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(-<span class='fl'>5</span> + <span class='fl'>10</span> * <span class='no'>x</span>), <span class='kw'>sigma</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(-<span class='fl'>1</span> + <span class='fl'>2</span> * <span class='no'>x</span>))
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gamlss/man/gamlss.html'>gamlss</a></span>(<span class='no'>y</span> ~ <span class='no'>x</span>, <span class='kw'>sigma.fo</span><span class='kw'>=</span>~<span class='no'>x</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='no'>GA</span>)</div><div class='output co'>#&gt; GAMLSS-RS iteration 1: Global Deviance = 16.9264 
+#&gt; GAMLSS-RS iteration 2: Global Deviance = 16.451 
+#&gt; GAMLSS-RS iteration 3: Global Deviance = 16.4508 </div><div class='input'>
 <span class='co'># Obtaining the means</span>
-<span class='no'>m1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/fitted.values'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)
+<span class='no'>m1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/fitted.values.html'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)
 <span class='no'>m2</span> <span class='kw'>&lt;-</span> <span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>m</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>fun</span><span class='kw'>=</span><span class='st'>"mean"</span>)
-
-<span class='co'># To explore the first 5 estimated means</span>
-<span class='no'>m1</span>[<span class='fl'>1</span>:<span class='fl'>5</span>]</div><div class='output co'>#&gt;           1           2           3           4           5 
-#&gt; 39.81780060  0.14510088  0.04182632  0.12608504 54.55673776 </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='no'>m1</span>, <span class='no'>m2</span>) <span class='co'># Comparing the estimated means</span></div><div class='output co'>#&gt;             m1           m2
+#&gt; 1 424.15608788 436.31392501
+#&gt; 2   2.06654083   2.04519647
+#&gt; 3   0.01677800   0.01668257
+#&gt; 4 283.71710580 292.39557310
+#&gt; 5   0.15756978   0.15690060
+#&gt; 6   0.05551859   0.05555330
+#&gt; 7 804.44551589 759.73614636</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span>(<span class='no'>m1</span>, <span class='no'>m2</span>)</div><div class='output co'>#&gt; [1] 0.998866</div><div class='input'>
 <span class='co'># Obtaining the standard deviations</span>
-<span class='no'>s1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/fitted.values'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>)
+<span class='no'>s1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/fitted.values.html'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"sigma"</span>) * <span class='fu'><a href='https://rdrr.io/r/stats/fitted.values.html'>fitted</a></span>(<span class='no'>mod</span>, <span class='kw'>what</span><span class='kw'>=</span><span class='st'>"mu"</span>)
 <span class='no'>s2</span> <span class='kw'>&lt;-</span> <span class='fu'>estimated_parameter</span>(<span class='no'>mod</span>, <span class='kw'>m</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>fun</span><span class='kw'>=</span><span class='st'>"sd"</span>)
-
-<span class='co'># Comparing the estimated means</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/cor'>cor</a></span>(<span class='no'>m1</span>, <span class='no'>m2</span>)</div><div class='output co'>#&gt; [1] 0.9996386</div><div class='input'><span class='co'># Comparing the estimated standard deviations</span>
-<span class='co'># in GA parameterization standard devition = mu * sigma</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/cor'>cor</a></span>(<span class='no'>s1</span>*<span class='no'>m1</span>, <span class='no'>s2</span>)</div><div class='output co'>#&gt; [1] 0.9996582</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='no'>s1</span>, <span class='no'>s2</span>) <span class='co'># Comparing the estimated standard deviations</span></div><div class='output co'>#&gt;             s1           s2
+#&gt; 1 1.034661e+03 1.035823e+03
+#&gt; 2 2.104148e+00 2.150535e+00
+#&gt; 3 7.753993e-03 7.816998e-03
+#&gt; 4 6.478880e+02 6.206000e+02
+#&gt; 5 1.051675e-01 1.049267e-01
+#&gt; 6 3.122518e-02 3.139663e-02
+#&gt; 7 2.179634e+03 2.101418e+03</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span>(<span class='no'>s1</span>, <span class='no'>s2</span>)</div><div class='output co'>#&gt; [1] 0.9998398</div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -213,13 +234,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

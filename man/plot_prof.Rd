@@ -4,8 +4,15 @@
 \alias{plot_prof}
 \title{Profile plot}
 \usage{
-plot_prof(x, Row = TRUE, cex.names = 0.5, xlab = "",
-  ylab = "Frequency", cex = 1, ...)
+plot_prof(
+  x,
+  Row = TRUE,
+  cex.names = 0.5,
+  xlab = "",
+  ylab = "Frequency",
+  cex = 1,
+  ...
+)
 }
 \arguments{
 \item{x}{a table, xtabs or matrix object.}

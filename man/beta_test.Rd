@@ -4,8 +4,12 @@
 \alias{beta_test}
 \title{Hypothesis testing for coefficients in lm objects.}
 \usage{
-beta_test(object, alternative = c("two.sided", "less", "greater"), parm,
-  ref.value)
+beta_test(
+  object,
+  alternative = c("two.sided", "less", "greater"),
+  parm,
+  ref.value
+)
 }
 \arguments{
 \item{object}{A \link{lm} object.}
