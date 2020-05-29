@@ -12,7 +12,7 @@ confint_sigma2(object, level = 0.95)
 \item{level}{the confidence level required.}
 }
 \value{
-A matrix (or vector) with columns giving lower and upper confidence limits.
+A matrix with columns giving lower and upper confidence limits.
 }
 \description{
 The \code{confint_sigma2} function computes confidence interval for the sigma2 parameter in a linear model fitted with the \link{lm} function.

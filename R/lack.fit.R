@@ -1,19 +1,10 @@
 #' Lack of fit of the regression model.
 #'
 #' This function performs a hypothesis test for lack of fit
-#' for simple regression model.
+#' in a simple regression model.
 #'
 #' @param mod A lm object.
-#' @examples
-#' x <- c(1, 1, 2, 3, 3, 4, 4, 4, 4.7, 5, 5.6, 5.6, 5.6, 6, 6, 6.5, 6.9)
-#' y <- c(10.84, 9.3, 16.35, 22.88, 24.35, 24.56, 25.86, 29.16, 24.59,
-#'        22.25, 25.9, 27.2, 25.61, 25.45, 26.56, 21.03, 21.46)
-#' mod <- lm(y ~ x)
-#' result <- lack.fit(mod)
-#' result
-#' # To explore the elements inside result object
-#' names(result)
-#' result$SSep
+#' @example inst/examples/examples_lack.fit.R
 #' @return \code{lack.fit} function returns a list with the statistica and p value.
 #'
 #' @importFrom stats residuals pf

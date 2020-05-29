@@ -1,16 +1,16 @@
 #' Plot observations in the coordinate plane Fi-Fj.
 #' 
-#' This function plots the observations in the coordinate plane Fi-Fj.
+#' This function plots the original observations in the coordinate plane Fi-Fj from a factor analysis.
 #' 
-#' @param scores a matrix obtained from \code{\link{factanal}} funcion with the
-#' the argument \code{scores="regression"}, see example below.
+#' @param scores a matrix obtained from \code{\link{factanal}} function.
 #' @param fx a number to indicate the factor to plot in x axis.
 #' @param fy a number to indicate the factor to plot in y axis.
 #' @param lchar the number of first characters to identify points, by default is 3.
 #' @param ... arguments to be passed to methods, such as graphical parameters (see par).
 #' 
 #' @example inst/examples/examples_plot_obsfa.R
-#' @return \code{plot_obsfa} function returns a plot with the observations in the coordinate plane Fi-Fj.
+#' @return \code{plot_obsfa} function returns a plot with the 
+#' observations in the coordinate plane Fi-Fj from a factor analysis.
 #' 
 #' @details The number in \code{fx} and \code{fy} must be less or equal
 #' number of factors in \code{factanal} function.

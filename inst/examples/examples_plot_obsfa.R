@@ -5,8 +5,9 @@ v4 <- c(3,3,4,3,3,1,1,2,1,1,1,1,2,1,1,5,6,4)
 v5 <- c(1,1,1,1,1,3,3,3,3,3,1,1,1,1,1,6,4,5)
 v6 <- c(1,1,1,2,1,3,3,3,4,3,1,1,1,2,1,6,5,4)
 m1 <- cbind(v1,v2,v3,v4,v5,v6)
+
 scores <- factanal(m1, factors=3, method="mle",
-                   scores="regression")$scores
+                   scores="Bartlett")$scores
 
 plot_obsfa(scores, fx=1, fy=2, col='blue', pch=20)
 plot_obsfa(scores, fx=1, fy=3, col='red', pch=19)
