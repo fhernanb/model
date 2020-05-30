@@ -173,15 +173,17 @@
     <p><code>plot_prof</code> function returns a profile plot.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>MASS</span>)
 <span class='co'># Using a table object</span>
 <span class='no'>tbl1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span>(<span class='no'>Cars93</span>, <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>Type</span>, <span class='no'>AirBags</span>))
-<span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl1</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='img'><img src='plot_prof-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl1</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>cex.names</span><span class='kw'>=</span><span class='fl'>0.9</span>, <span class='kw'>cex</span><span class='kw'>=</span><span class='fl'>0.6</span>)</div><div class='img'><img src='plot_prof-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl1</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl1</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>cex.names</span><span class='kw'>=</span><span class='fl'>0.9</span>, <span class='kw'>cex</span><span class='kw'>=</span><span class='fl'>0.6</span>)
+
 <span class='co'># Using a xtabs object</span>
 <span class='no'>tbl2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span>(<span class='no'>Cars93</span>, <span class='fu'><a href='https://rdrr.io/r/stats/xtabs.html'>xtabs</a></span>(~ <span class='no'>Type</span> + <span class='no'>AirBags</span>))
-<span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl2</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>cex.names</span><span class='kw'>=</span><span class='fl'>1.8</span>)</div><div class='img'><img src='plot_prof-3.png' alt='' width='700' height='433' /></div><div class='input'># }
-</div></pre>
+<span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl2</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>cex.names</span><span class='kw'>=</span><span class='fl'>1.8</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
