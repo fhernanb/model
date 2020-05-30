@@ -3,4 +3,6 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^docs$
+^inst$
+^pkgdown$
 ^data-raw$

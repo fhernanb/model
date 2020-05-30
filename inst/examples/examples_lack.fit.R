@@ -8,5 +8,3 @@ plot(x=x, y=y, pch=20)
 mod <- lm(y ~ x)
 result <- lack.fit(mod)
 result
-
-

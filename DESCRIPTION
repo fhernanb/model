@@ -19,6 +19,5 @@ RoxygenNote: 7.1.0
 Imports:
     gamlss
 Suggests: knitr,
-    rmarkdown,
-    ca
+    rmarkdown
 VignetteBuilder: knitr

@@ -14,7 +14,7 @@
 #' @return The \code{beta_test} function returns a matrix with the estimated coefficient,
 #' standard error, t value and p-value.
 #'
-#' @importFrom stats coefficients residuals coef pt
+#' @importFrom stats coefficients residuals coef pt printCoefmat
 #' @export
 beta_test <- function (object,
                        alternative = c("two.sided", "less", "greater"),
