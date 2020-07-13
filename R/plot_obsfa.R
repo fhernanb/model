@@ -8,7 +8,7 @@
 #' @param lchar the number of first characters to identify points, by default is 3.
 #' @param ... arguments to be passed to methods, such as graphical parameters (see par).
 #' 
-#' @example inst/examples/examples_plot_obsfa.R
+#' @example examples/examples_plot_obsfa.R
 #' @return \code{plot_obsfa} function returns a plot with the 
 #' observations in the coordinate plane Fi-Fj from a factor analysis.
 #' 

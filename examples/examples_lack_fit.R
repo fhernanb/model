@@ -6,5 +6,4 @@ y <- c(10.84, 9.30, 16.35, 22.88, 24.35, 24.56, 25.86,
 plot(x=x, y=y, pch=20)
 
 mod <- lm(y ~ x)
-result <- lack.fit(mod)
-result
+lack_fit(mod)

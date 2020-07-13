@@ -6,7 +6,7 @@
 #' @param fun the estimated parameter, by default is mean but can be change for sd or var.
 #' @param m a number to indicate the number of observations to simulate, by default its values is 100.
 #' 
-#' @example inst/examples/examples_estimated_parameter.R
+#' @example examples/examples_estimated_parameter.R
 #' @return \code{estimated_parameter} function returns a vector.
 #' 
 #' @details The function obtains the fitted values for mu, sigma, nu and tau. The functions simulates m observations and then it obtains the mean/fun defined by the user.

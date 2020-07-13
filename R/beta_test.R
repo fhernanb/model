@@ -10,7 +10,7 @@
 #' @param ref.value is a numeric vector with the reference values
 #'  to perform the test \eqn{Ho: \beta_j = \beta_{j0}}.
 #' @param parm is a vector with the coefficient names.
-#' @example inst/examples/examples_beta_test.R
+#' @example examples/examples_beta_test.R
 #' @return The \code{beta_test} function returns a matrix with the estimated coefficient,
 #' standard error, t value and p-value.
 #'

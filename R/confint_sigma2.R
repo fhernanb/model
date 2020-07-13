@@ -4,7 +4,7 @@
 #'
 #' @param object a \link{lm} object.
 #' @param level the confidence level required.
-#' @example inst/examples/examples_confint_sigma2.R
+#' @example examples/examples_confint_sigma2.R
 #' @return A matrix with columns giving lower and upper confidence limits.
 #'
 #' @importFrom stats coef sigma qchisq

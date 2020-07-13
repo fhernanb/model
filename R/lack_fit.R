@@ -4,12 +4,12 @@
 #' in a simple regression model.
 #'
 #' @param mod A lm object.
-#' @example inst/examples/examples_lack.fit.R
-#' @return \code{lack.fit} function returns a list with the statistica and p value.
+#' @example examples/examples_lack_fit.R
+#' @return \code{lack_fit} function returns a list with the statistica and p value.
 #'
 #' @importFrom stats residuals pf
 #' @export
-lack.fit <- function(mod) {
+lack_fit <- function(mod) {
   stopifnot(class(mod) == 'lm')
   z <- data.matrix(mod$model, rownames.force=NA)
   y <- z[, 1]

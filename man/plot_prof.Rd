@@ -37,7 +37,6 @@ This function gives the profile plot for contingency table objects created by ta
 }
 \examples{
 \dontrun{
-library(MASS)
 # Using a table object
 tbl1 <- with(Cars93, table(Type, AirBags))
 plot_prof(x=tbl1, Row=TRUE)
