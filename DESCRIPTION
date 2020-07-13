@@ -1,6 +1,6 @@
 Package: model
 Title: Model package contains useful functions for modeling regresion
-Version: 0.0.0.9001
+Version: 0.0.0.9000
 Authors@R: c(
     person(given="Freddy",
            family="Hernandez", 

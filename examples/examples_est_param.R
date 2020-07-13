@@ -9,13 +9,13 @@ mod <- gamlss(y ~ x, sigma.fo=~x, family=NO)
 
 # Obtaining the means
 m1 <- fitted(mod, what="mu")
-m2 <- estimated_parameter(mod, m=10000, fun="mean")
+m2 <- est_param(mod, m=10000, fun="mean")
 cbind(m1, m2) # Comparing the estimated means
 cor(m1, m2)
 
 # Obtaining the standard deviations
 s1 <- fitted(mod, what="sigma")
-s2 <- estimated_parameter(mod, m=10000, fun="sd")
+s2 <- est_param(mod, m=10000, fun="sd")
 cbind(s1, s2) # Comparing the estimated standard deviations
 cor(s1, s2)
 
@@ -28,13 +28,13 @@ mod <- gamlss(y ~ x, sigma.fo=~x, family=GA)
 
 # Obtaining the means
 m1 <- fitted(mod, what="mu")
-m2 <- estimated_parameter(mod, m=10000, fun="mean")
+m2 <- est_param(mod, m=10000, fun="mean")
 cbind(m1, m2) # Comparing the estimated means
 cor(m1, m2)
 
 # Obtaining the standard deviations
 s1 <- fitted(mod, what="sigma") * fitted(mod, what="mu")
-s2 <- estimated_parameter(mod, m=10000, fun="sd")
+s2 <- est_param(mod, m=10000, fun="sd")
 cbind(s1, s2) # Comparing the estimated standard deviations
 cor(s1, s2)
 
