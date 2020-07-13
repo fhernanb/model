@@ -7,7 +7,7 @@
 #' @param pch  an integer specifying a symbol or a single character to be used as the default in plotting points.
 #' @param ... arguments to be passed to methods, such as graphical parameters (see par).
 #' 
-#' @example inst/examples/examples_plot_obspc.R
+#' @example examples/examples_plot_obspc.R
 #' @return The function returns a list with two elements, coordinate points for first
 #' and second dimensions.
 #' 

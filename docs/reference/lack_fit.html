@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Profile plot — plot_prof • model</title>
+<title>Lack of fit of the regression model. — lack_fit • model</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,9 @@
 
 
 
-<meta property="og:title" content="Profile plot — plot_prof" />
-<meta property="og:description" content="This function gives the profile plot for contingency table objects created by table or xtabs or matrix." />
+<meta property="og:title" content="Lack of fit of the regression model. — lack_fit" />
+<meta property="og:description" content="This function performs a hypothesis test for lack of fit
+in a simple regression model." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -116,73 +117,54 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Profile plot</h1>
-    <small class="dont-index">Source: <a href='https://github.com/fhernanb/model/blob/master/R/plot_prof.R'><code>R/plot_prof.R</code></a></small>
-    <div class="hidden name"><code>plot_prof.Rd</code></div>
+    <h1>Lack of fit of the regression model.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/fhernanb/model/blob/master/R/lack_fit.R'><code>R/lack_fit.R</code></a></small>
+    <div class="hidden name"><code>lack_fit.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function gives the profile plot for contingency table objects created by table or xtabs or matrix.</p>
+    <p>This function performs a hypothesis test for lack of fit
+in a simple regression model.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_prof</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>Row</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>cex.names</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"Frequency"</span>,
-  <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>lack_fit</span>(<span class='no'>mod</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>a table, xtabs or matrix object.</p></td>
-    </tr>
-    <tr>
-      <th>Row</th>
-      <td><p>a logical value to indicate if profile plot is for Rows o Columns.</p></td>
-    </tr>
-    <tr>
-      <th>cex.names</th>
-      <td><p>Expansion factor for axis names (bar labels).</p></td>
-    </tr>
-    <tr>
-      <th>xlab</th>
-      <td><p>a label for the x axis.</p></td>
-    </tr>
-    <tr>
-      <th>ylab</th>
-      <td><p>a label for the y axis, by default is Frequency.</p></td>
-    </tr>
-    <tr>
-      <th>cex</th>
-      <td><p>a character expansion factor for legend.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>arguments to be passed to methods, such as graphical parameters (see par).</p></td>
+      <th>mod</th>
+      <td><p>A lm object.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>plot_prof</code> function returns a profile plot.</p>
+    <p><code>lack_fit</code> function returns a list with the statistica and p value.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># Using a table object</span>
-<span class='no'>tbl1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span>(<span class='no'>Cars93</span>, <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>Type</span>, <span class='no'>AirBags</span>))
-<span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl1</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl1</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>cex.names</span><span class='kw'>=</span><span class='fl'>0.9</span>, <span class='kw'>cex</span><span class='kw'>=</span><span class='fl'>0.6</span>)
-
-<span class='co'># Using a xtabs object</span>
-<span class='no'>tbl2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span>(<span class='no'>Cars93</span>, <span class='fu'><a href='https://rdrr.io/r/stats/xtabs.html'>xtabs</a></span>(~ <span class='no'>Type</span> + <span class='no'>AirBags</span>))
-<span class='fu'>plot_prof</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>tbl2</span>, <span class='kw'>Row</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>cex.names</span><span class='kw'>=</span><span class='fl'>1.8</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.0</span>, <span class='fl'>1.0</span>, <span class='fl'>2.0</span>, <span class='fl'>3.3</span>, <span class='fl'>3.3</span>, <span class='fl'>4.0</span>, <span class='fl'>4.0</span>, <span class='fl'>4.0</span>, <span class='fl'>4.7</span>, <span class='fl'>5.0</span>,
+       <span class='fl'>5.6</span>, <span class='fl'>5.6</span>, <span class='fl'>5.6</span>, <span class='fl'>6.0</span>, <span class='fl'>6.0</span>, <span class='fl'>6.5</span>, <span class='fl'>6.9</span>)
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>10.84</span>, <span class='fl'>9.30</span>, <span class='fl'>16.35</span>, <span class='fl'>22.88</span>, <span class='fl'>24.35</span>, <span class='fl'>24.56</span>, <span class='fl'>25.86</span>,
+       <span class='fl'>29.16</span>, <span class='fl'>24.59</span>, <span class='fl'>22.25</span>, <span class='fl'>25.90</span>, <span class='fl'>27.20</span>, <span class='fl'>25.61</span>, <span class='fl'>25.45</span>,
+       <span class='fl'>26.56</span>, <span class='fl'>21.03</span>, <span class='fl'>21.46</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>x</span>, <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>pch</span><span class='kw'>=</span><span class='fl'>20</span>)</div><div class='img'><img src='lack_fit-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>(<span class='no'>y</span> ~ <span class='no'>x</span>)
+<span class='fu'>lack_fit</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; $SSep
+#&gt; [1] 15.56303
+#&gt; 
+#&gt; $SSres
+#&gt; [1] 250.1338
+#&gt; 
+#&gt; $SSfa
+#&gt; [1] 234.5708
+#&gt; 
+#&gt; $Fo
+#&gt; [1] 13.18827
+#&gt; 
+#&gt; $p.value
+#&gt; [1] 0.001388715
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

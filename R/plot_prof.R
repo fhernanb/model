@@ -10,7 +10,7 @@
 #' @param cex a character expansion factor for legend.
 #' @param ... arguments to be passed to methods, such as graphical parameters (see par).
 #' 
-#' @example inst/examples/examples_plot_prof.R
+#' @example examples/examples_plot_prof.R
 #' @return \code{plot_prof} function returns a profile plot. 
 #' 
 #' @importFrom graphics barplot legend par

@@ -3,13 +3,7 @@
 #' This function creates the summary table with p values for a \code{lmerMod} object.
 #'
 #' @param mod A `lmerMod` object.
-#' @examples
-#' \dontrun{
-#' require(lme4)
-#' fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
-#' summary(fm1) # Usual table without p values
-#' summary_lmer(fm1) # Table with p values
-#' }
+#' @example examples/examples_summary_lmer.R
 #' @return \code{summary_lmer} function returns a matrix with p values in last column.
 #'
 #' @importFrom stats pnorm printCoefmat
