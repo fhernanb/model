@@ -6,16 +6,8 @@
 #' @param lchar the number of first characters to identify points.
 #' @param pch  an integer specifying a symbol or a single character to be used as the default in plotting points.
 #' @param ... arguments to be passed to methods, such as graphical parameters (see par).
-#' @examples
-#' # For a prcomp object
-#' pca1 <- prcomp(USArrests, scale=TRUE)  # Example
-#' plot_obspc(pca1)  
-#' # Default plot
-#' plot_obspc(pca1, lchar=3, col='blue', pch=8)  # Customized plot
-#' #
-#' # For a princomp object
-#' pca2 <- princomp(x=USArrests, cor=TRUE)
-#' plot_obspc(pca2, col='red', ylim=c(-4, 4), xlim=c(-4, 4)) 
+#' 
+#' @example inst/examples/examples_plot_obspc.R
 #' @return The function returns a list with two elements, coordinate points for first
 #' and second dimensions.
 #' 

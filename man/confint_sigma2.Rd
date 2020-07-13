@@ -18,7 +18,13 @@ A matrix with columns giving lower and upper confidence limits.
 The \code{confint_sigma2} function computes confidence interval for the sigma2 parameter in a linear model fitted with the \link{lm} function.
 }
 \examples{
+# Example for simple linear regression
 mod <- lm(dist ~ speed, data=cars)
+confint_sigma2(object=mod, level=0.95)
+confint_sigma2(object=mod, level=0.80)
+
+# Example for multiple linear regression
+mod <- lm(mpg ~ wt + hp, data=mtcars)
 confint_sigma2(object=mod, level=0.95)
 confint_sigma2(object=mod, level=0.80)
 }

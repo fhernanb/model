@@ -4,10 +4,7 @@
 #'
 #' @param object a \link{lm} object.
 #' @param level the confidence level required.
-#' @examples
-#' mod <- lm(dist ~ speed, data=cars)
-#' confint_sigma2(object=mod, level=0.95)
-#' confint_sigma2(object=mod, level=0.80)
+#' @example inst/examples/examples_confint_sigma2.R
 #' @return A matrix with columns giving lower and upper confidence limits.
 #'
 #' @importFrom stats coef sigma qchisq
