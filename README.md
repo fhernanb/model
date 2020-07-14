@@ -1,26 +1,18 @@
+[![Travis build status](https://travis-ci.org/fhernanb/model.svg?branch=master)](https://travis-ci.org/fhernanb/model)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version-ago/model)](https://cran.r-project.org/package=model)
+[![CRAN\_Download\_Badge](http://cranlogs.r-pkg.org/badges/model)](https://cran.r-project.org/package=model) 
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+# model <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
-# model
+An R package with useful functions for modeling regresion.
 
-<!-- badges: start -->
+You can visit the [package website](https://fhernanb.github.io/model/index.html) to explore the vignettes (articles) and function reference. 
 
-<!-- badges: end -->
+### Installation
 
-The goal of model is to …
+* Install latest development version from GitHub using the code given below:
 
-## Installation
-
-You can install the released version of model from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("model")
-```
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages("devtools")
-devtools::install_github("fhernanb/model")
+```r
+if (!require('devtools')) install.packages('devtools')
+devtools::install_github('fhernanb/model', force=TRUE)
 ```
