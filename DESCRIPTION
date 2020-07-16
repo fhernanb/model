@@ -1,6 +1,6 @@
 Package: model
-Title: Model package contains useful functions for modeling regresion
-Version: 0.0.0.9000
+Title: This Package Contains Useful Functions for Modeling Regresion
+Version: 0.0.0.9001
 Authors@R: c(
     person(given="Freddy",
            family="Hernandez", 
@@ -13,7 +13,7 @@ Authors@R: c(
            role = c("aut"))
   )
 Maintainer: Freddy Hernandez <fhernanb@unal.edu.co>
-Description: Model package contains useful functions 
+Description: The model package contains useful functions 
     for modeling regresion.
 Depends: R (>= 3.0.0)
 License: GPL-3
@@ -26,4 +26,3 @@ Imports:
     gamlss
 Suggests: knitr,
     rmarkdown
-VignetteBuilder: knitr
