@@ -6,3 +6,5 @@
 ^examples$
 ^pkgdown$
 ^LICENSE\.md$
+^CRAN-RELEASE$
+^cran-comments\.md$
