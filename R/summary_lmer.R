@@ -10,7 +10,8 @@
 #' @export
 #'
 summary_lmer <- function(mod) {
-  if (class(mod) != "lmerMod") stop("The model is not a lmerMod object")
+  if (! inherits(mod, "lmerMod")) 
+    stop("The model is not a lmerMod object")
   coefi <- summary(mod)$coefficients
   pvalues <- 2*pnorm(q=abs(coefi[, 3]), lower.tail=FALSE)
   res <- cbind(coefi, p.value=round(pvalues, 4))

@@ -10,7 +10,7 @@
 #' @importFrom stats coef sigma qchisq
 #' @export
 confint_sigma2 <- function(object, level=0.95) {
-  if (class(object) != "lm") stop("The object is not a lm object")
+  if (!inherits(object, "lm")) stop("The object is not a lm object")
   alpha <- 1 - level
   n <- length(object$residuals)
   p <- length(coef(object))

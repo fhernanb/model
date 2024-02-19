@@ -3,7 +3,7 @@
 export(beta_test)
 export(confint_sigma2)
 export(est_param)
-export(lack_fit)
+export(lack_fit_test)
 export(plot_obsfa)
 export(plot_obspc)
 export(plot_prof)

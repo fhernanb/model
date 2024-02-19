@@ -15,7 +15,7 @@
 #' @export
 plot_obspc <- function(mod, lchar=3, pch=20, ...) {
   stopifnot(class(mod) %in% c('prcomp', 'princomp'))
-  if (class(mod) == 'prcomp') {
+  if (inherits(mod, "prcomp")) {
     scores <- mod$x
   } else {
     scores <- mod$scores

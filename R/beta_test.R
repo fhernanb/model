@@ -21,7 +21,7 @@ beta_test <- function (object,
                        parm,
                        ref.value)
 {
-  if (class(object) != "lm") stop("The object is not a lm object")
+  if (!inherits(object, "lm")) stop("The object is not a lm object")
   if (!is.numeric(ref.value)) stop("The reference values need to be numeric")
   if (!any(parm %in% names(object$coefficients))) stop("Some parm name is wrong")
   bj <- coefficients(summary(object))[parm, "Estimate"]
