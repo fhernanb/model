@@ -55,5 +55,4 @@ lack_fit_test <- function(mod) {
   attr(result, "heading") <- c("Lack of fit test - Anova Table")
   
   result
-  
 }
