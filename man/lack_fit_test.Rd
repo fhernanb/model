@@ -17,7 +17,7 @@ This function performs a hypothesis test for lack of fit
 in a simple regression model.
 }
 \examples{
-# Example for section 4.5 Montgomery, Peck & Vining (2006)
+# Example for section 4.8 Montgomery, Peck & Vining (2006)
 x <- c(1.0, 1.0, 2.0, 3.3, 3.3, 4.0, 4.0, 4.0, 4.7, 5.0,
        5.6, 5.6, 5.6, 6.0, 6.0, 6.5, 6.9)
 
@@ -33,7 +33,7 @@ abline(mod, lty="dashed", col="blue", lwd=2)
 
 lack_fit_test(mod)
 
-# Example 9.6 Montgomery & Runger (1996)
+# Example 9.9 Montgomery & Runger (1996)
 x <- c(1.0, 1.0, 2.0, 3.3, 3.3, 4.0, 4.0, 4.0, 5.0,
        5.6, 5.6, 5.6, 6.0, 6.0, 6.5, 6.9)
 

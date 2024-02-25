@@ -13,6 +13,6 @@ You can visit the [package website](https://fhernanb.github.io/model/index.html)
 * Install latest development version from GitHub using the code given below:
 
 ```r
-if (!require('devtools')) install.packages('devtools')
-devtools::install_github('fhernanb/model', force=TRUE)
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("fhernanb/model")
 ```
