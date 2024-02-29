@@ -50,7 +50,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">est_param</span><span class="op">(</span><span class="va">mod</span>, fun <span class="op">=</span> <span class="st">"mean"</span>, m <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">est_param</span><span class="op">(</span><span class="va">mod</span>, fun <span class="op">=</span> <span class="st">"mean"</span>, m <span class="op">=</span> <span class="fl">100</span>, <span class="va">data</span>, newdata <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -65,6 +65,14 @@
 
 <dt>m</dt>
 <dd><p>a number to indicate the number of observations to simulate, by default its values is 100.</p></dd>
+
+
+<dt>data</dt>
+<dd><p>the original data frame used to fit mod.</p></dd>
+
+
+<dt>newdata</dt>
+<dd><p>a data frame containing new values for the explanatory variables.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -86,6 +94,17 @@
 <span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">7</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span>, mean<span class="op">=</span><span class="op">-</span><span class="fl">5</span> <span class="op">+</span> <span class="fl">10</span> <span class="op">*</span> <span class="va">x</span>, sd<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">data1</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            y           x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -5.962582 0.080750138</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  14.118155 0.834333037</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -7.442000 0.600760886</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  -5.164947 0.157208442</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  -7.290830 0.007399441</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 -10.870123 0.466393497</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  14.465420 0.497777389</span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: splines</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: gamlss.data</span>
@@ -100,7 +119,7 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  **********   GAMLSS Version 5.4-20  ********** </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> For more on GAMLSS look at https://www.gamlss.com/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Type gamlssNews() to see new features/changes/bug fixes.</span>
-<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="va">x</span>, family<span class="op">=</span><span class="va">NO</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="va">x</span>, family<span class="op">=</span><span class="va">NO</span>, data<span class="op">=</span><span class="va">data1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 43.4364 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 35.2613 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 34.1276 </span>
@@ -108,8 +127,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = 34.0943 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Obtaining the means</span></span></span>
-<span class="r-in"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu">est_param</span><span class="op">(</span><span class="va">mod</span>, m<span class="op">=</span><span class="fl">10000</span>, fun<span class="op">=</span><span class="st">"mean"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu">est_param</span><span class="op">(</span><span class="va">mod1</span>, m<span class="op">=</span><span class="fl">10000</span>, fun<span class="op">=</span><span class="st">"mean"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">m2</span><span class="op">)</span> <span class="co"># Comparing the estimated means</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            m1         m2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 -6.09961525 -6.0990137</span>
@@ -123,8 +142,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9899216</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Obtaining the standard deviations</span></span></span>
-<span class="r-in"><span><span class="va">s1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">s2</span> <span class="op">&lt;-</span> <span class="fu">est_param</span><span class="op">(</span><span class="va">mod</span>, m<span class="op">=</span><span class="fl">10000</span>, fun<span class="op">=</span><span class="st">"sd"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">s1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">s2</span> <span class="op">&lt;-</span> <span class="fu">est_param</span><span class="op">(</span><span class="va">mod1</span>, m<span class="op">=</span><span class="fl">10000</span>, fun<span class="op">=</span><span class="st">"sd"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">s1</span>, <span class="va">s2</span><span class="op">)</span> <span class="co"># Comparing the estimated standard deviations</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             s1           s2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   0.13810096   0.13986106</span>
@@ -141,41 +160,99 @@
 <span class="r-in"><span><span class="co"># Here E(y) = mu and Var(y)= sigma^2 mu^2</span></span></span>
 <span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">7</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss.dist/man/GA.html" class="external-link">rGA</a></span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span>, mu<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span> <span class="op">+</span> <span class="fl">10</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span>, sigma<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="va">x</span>, family<span class="op">=</span><span class="va">GA</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 16.9264 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 16.451 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 16.4508 </span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss.dist/man/GA.html" class="external-link">rGA</a></span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span>, mu<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span> <span class="op">+</span> <span class="fl">5</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span>, sigma<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">data2</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              y          x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   0.04439329 0.93620147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  24.07903452 0.49056477</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   0.77665476 0.08767044</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   0.19226774 0.90254377</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   1.66785029 0.27514128</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   0.41760508 0.18782978</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 380.30685933 0.98977368</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mod2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="va">x</span>, family<span class="op">=</span><span class="va">GA</span>, data<span class="op">=</span><span class="va">data2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 34.2295 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = 33.7537 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = 33.7535 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>summary: vcov has failed, option qr is used instead</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ******************************************************************</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Family:  c("GA", "Gamma") </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:  gamlss(formula = y ~ x, sigma.formula = ~x, family = GA, data = data2) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Fitting method: RS() </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Mu link function:  log</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Mu Coefficients:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value Pr(&gt;|t|)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  -1.1351     0.4518  -2.512  0.05367 . </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x             6.9475     1.5450   4.497  0.00642 **</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Sigma link function:  log</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Sigma Coefficients:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value Pr(&gt;|t|)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  -0.9437     0.4610  -2.047    0.096 .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x             1.9606     0.6402   3.063    0.028 *</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> No. of observations in the fit:  7 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom for the fit:  4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Residual Deg. of Freedom:  3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       at cycle:  3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Global Deviance:     33.75354 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             AIC:     41.75354 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             SBC:     41.53718 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ******************************************************************</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Obtaining the means</span></span></span>
-<span class="r-in"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu">est_param</span><span class="op">(</span><span class="va">mod</span>, m<span class="op">=</span><span class="fl">10000</span>, fun<span class="op">=</span><span class="st">"mean"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod2</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu">est_param</span><span class="op">(</span><span class="va">mod2</span>, m<span class="op">=</span><span class="fl">10000</span>, fun<span class="op">=</span><span class="st">"mean"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">m2</span><span class="op">)</span> <span class="co"># Comparing the estimated means</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             m1           m2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 424.15608788 436.31392501</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   2.06654083   2.04519647</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   0.01677800   0.01668257</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 283.71710580 292.39557310</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   0.15756978   0.15690060</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   0.05551859   0.05555330</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 804.44551589 759.73614636</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            m1          m2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 214.6680721 220.8212299</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   9.7089855   9.6087059</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   0.5909412   0.5875801</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 169.9080886 175.1053139</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   2.1736475   2.1644163</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   1.1850842   1.1858251</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 311.4639353 294.1534341</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">m2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.998866</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9984612</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Obtaining the standard deviations</span></span></span>
-<span class="r-in"><span><span class="va">s1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">s2</span> <span class="op">&lt;-</span> <span class="fu">est_param</span><span class="op">(</span><span class="va">mod</span>, m<span class="op">=</span><span class="fl">10000</span>, fun<span class="op">=</span><span class="st">"sd"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">s1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod2</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">mod2</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">s2</span> <span class="op">&lt;-</span> <span class="fu">est_param</span><span class="op">(</span><span class="va">mod2</span>, m<span class="op">=</span><span class="fl">10000</span>, fun<span class="op">=</span><span class="st">"sd"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">s1</span>, <span class="va">s2</span><span class="op">)</span> <span class="co"># Comparing the estimated standard deviations</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             s1           s2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.034661e+03 1.035823e+03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2.104148e+00 2.150535e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 7.753993e-03 7.816998e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 6.478880e+02 6.206000e+02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1.051675e-01 1.049267e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 3.122518e-02 3.139663e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2.179634e+03 2.101418e+03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            s1          s2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 523.6485741 524.2365047</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   9.8856690  10.1036040</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   0.2731049   0.2753241</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 387.9970826 371.6552429</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   1.4507668   1.4474450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   0.6665239   0.6701837</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 843.9071060 813.6235151</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="va">s1</span>, <span class="va">s2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9998398</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9997663</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To predict mean and standard deviation for new observations</span></span></span>
+<span class="r-in"><span><span class="va">new_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.26</span>, <span class="fl">0.52</span>, <span class="fl">0.77</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">est_param</span><span class="op">(</span>mod<span class="op">=</span><span class="va">mod2</span>, fun<span class="op">=</span><span class="st">"mean"</span>, m<span class="op">=</span><span class="fl">10000</span>, data<span class="op">=</span><span class="va">data2</span>, newdata<span class="op">=</span><span class="va">new_data</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  1.955015 11.809437 68.535349</span>
+<span class="r-in"><span><span class="fu">est_param</span><span class="op">(</span>mod<span class="op">=</span><span class="va">mod2</span>, fun<span class="op">=</span><span class="st">"sd"</span>  , m<span class="op">=</span><span class="fl">10000</span>, data<span class="op">=</span><span class="va">data2</span>, newdata<span class="op">=</span><span class="va">new_data</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]   1.269137  12.903712 117.566921</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
