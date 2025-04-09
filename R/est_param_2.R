@@ -1,18 +1,27 @@
 #' Estimation of mean and/or variance for models fitted with gamlss2.
 #' 
-#' This function estimates parameters like mean, standard deviation for a gamlss2 object. This function is very useful when the mean or standard deviation do not match with mu, sigma or some function of mu and/or sigma.
+#' This function estimates parameters like mean, standard deviation for a 
+#' gamlss2 object. This function is very useful when the mean or 
+#' standard deviation do not match with the parameters
+#' \eqn{\mu}, \eqn{\sigma}, \eqn{\nu} and \eqn{\tau}, ..., or some 
+#' function of the parameters \eqn{\mu}, \eqn{\sigma}, \eqn{\nu} and \eqn{\tau}.
 #' 
 #' @param mod a gamlss2 object.
-#' @param fun the estimated parameter, by default is mean but can be change for sd or var.
-#' @param m a number to indicate the number of observations to simulate, by default its values is 100.
-#' @param data the original data frame used to fit mod.
-#' @param newdata a data frame containing new values for the explanatory variables.
+#' @param fun the estimated parameter, by default is mean but can be 
+#' changed for sd, var or any statistical function.
+#' @param m a number to indicate the number of observations to simulate, 
+#' by default its values is 100.
+#' @param data the original data frame used to fit the mod.
+#' @param newdata a data frame containing new values for the 
+#' explanatory variables.
 #' @param ... additional parameters for "fun" function.
 #' 
 #' @example examples/examples_est_param_2.R
 #' @return \code{est_param_2} function returns a vector.
 #' 
-#' @details The function obtains the fitted values for mu, sigma, nu and tau. The functions simulates m observations and then it obtains the mean/fun defined by the user.
+#' @details The function obtains the fitted values for mu, sigma, nu and tau. 
+#' The functions simulates m observations and then it obtains the mean/fun 
+#' defined by the user.
 #' 
 #' @importFrom stats predict
 #' @export

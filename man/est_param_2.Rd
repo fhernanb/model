@@ -9,13 +9,16 @@ est_param_2(mod, fun = "mean", m = 100, data, newdata = NULL, ...)
 \arguments{
 \item{mod}{a gamlss2 object.}
 
-\item{fun}{the estimated parameter, by default is mean but can be change for sd or var.}
+\item{fun}{the estimated parameter, by default is mean but can be 
+changed for sd, var or any statistical function.}
 
-\item{m}{a number to indicate the number of observations to simulate, by default its values is 100.}
+\item{m}{a number to indicate the number of observations to simulate, 
+by default its values is 100.}
 
-\item{data}{the original data frame used to fit mod.}
+\item{data}{the original data frame used to fit the mod.}
 
-\item{newdata}{a data frame containing new values for the explanatory variables.}
+\item{newdata}{a data frame containing new values for the 
+explanatory variables.}
 
 \item{...}{additional parameters for "fun" function.}
 }
@@ -23,10 +26,16 @@ est_param_2(mod, fun = "mean", m = 100, data, newdata = NULL, ...)
 \code{est_param_2} function returns a vector.
 }
 \description{
-This function estimates parameters like mean, standard deviation for a gamlss2 object. This function is very useful when the mean or standard deviation do not match with mu, sigma or some function of mu and/or sigma.
+This function estimates parameters like mean, standard deviation for a 
+gamlss2 object. This function is very useful when the mean or 
+standard deviation do not match with the parameters
+\eqn{\mu}, \eqn{\sigma}, \eqn{\nu} and \eqn{\tau}, ..., or some 
+function of the parameters \eqn{\mu}, \eqn{\sigma}, \eqn{\nu} and \eqn{\tau}.
 }
 \details{
-The function obtains the fitted values for mu, sigma, nu and tau. The functions simulates m observations and then it obtains the mean/fun defined by the user.
+The function obtains the fitted values for mu, sigma, nu and tau. 
+The functions simulates m observations and then it obtains the mean/fun 
+defined by the user.
 }
 \examples{
 
