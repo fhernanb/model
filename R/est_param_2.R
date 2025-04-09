@@ -9,7 +9,7 @@
 #' @param newdata a data frame containing new values for the explanatory variables.
 #' @param ... additional parameters for "fun" function.
 #' 
-#' @example examples/examples_est_param.R
+#' @example examples/examples_est_param_2.R
 #' @return \code{est_param_2} function returns a vector.
 #' 
 #' @details The function obtains the fitted values for mu, sigma, nu and tau. The functions simulates m observations and then it obtains the mean/fun defined by the user.
