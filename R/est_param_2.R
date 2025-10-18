@@ -30,18 +30,20 @@ est_param_2 <- function(mod, fun="mean", m=100, data, newdata=NULL, ...) {
   
   if (is.null(newdata)) {
     fit <- predict(mod)
-    fit
+    #fit
   }
   else {
     fit <- NULL
     for (i in mod$family$names) {
-      temp <- predict(mod, model=i, data=data, newdata=newdata, type="parameter")
+      temp <- predict(mod, model=i, data=data, newdata=newdata, 
+                      type="parameter")
       fit <- cbind(fit, temp)
     }
   }
   # Auxiliar function to simulate
   generator <- function(x) {
-    aux <- paste0("r", mod$family$family, "(n=m, ", paste(x, sep="", collapse=", "), ")")
+    aux <- paste0("r", mod$family$family, "(n=m, ", 
+                  paste(x, sep="", collapse=", "), ")")
     eval(parse(text=aux))
   }
   

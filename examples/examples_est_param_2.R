@@ -8,7 +8,9 @@ data1 <- data.frame(y, x)
 data1
 
 library(gamlss2)
-mod1 <- gamlss2(y ~ x, sigma.fo=~x, family=NO, data=data1)
+
+f <- y ~ x | x
+mod1 <- gamlss2(f, family=NO, data=data1)
 
 # Obtaining the means
 m1 <- fitted(mod1, model="mu", type="parameter")
@@ -30,7 +32,8 @@ y <- rGA(n=n, mu=exp(-1 + 5 * x), sigma=exp(-1 + 2 * x))
 data2 <- data.frame(y, x)
 data2
 
-mod2 <- gamlss2(y ~ x, sigma.fo=~x, family=GA, data=data2)
+f <- y ~ x | x
+mod2 <- gamlss2(f, family=GA, data=data2)
 
 summary(mod2)
 
@@ -51,3 +54,30 @@ new_data <- data.frame(x=c(0.26, 0.52, 0.77))
 
 est_param_2(mod=mod2, fun="mean", m=10000, data=data2, newdata=new_data)
 est_param_2(mod=mod2, fun="sd"  , m=10000, data=data2, newdata=new_data)
+
+
+# Example with BCTo distribution ------------------------------------------
+
+# Here E(y) = mu
+n <- 7
+x <- runif(n=n)
+y <- rBCTo(n=n, mu=exp(-1 + 5 * x), sigma=exp(-1 + 2 * x))
+data3 <- data.frame(y, x)
+data3
+
+f <- y ~ x | x
+mod3 <- gamlss2(f, family=BCTo, data=data3)
+
+summary(mod3)
+
+# Obtaining the means
+m1 <- fitted(mod3, model="mu", type="parameter")
+m2 <- est_param_2(mod3, m=10000, fun="mean")
+cbind(m1, m2) # Comparing the estimated means
+cor(m1, m2)
+
+# To predict mean and for new observations
+new_data <- data.frame(x=c(0.26, 0.52, 0.77))
+
+est_param_2(mod=mod3, fun="mean", m=10000, data=data3)
+

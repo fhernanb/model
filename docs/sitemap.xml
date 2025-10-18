@@ -1,14 +1,14 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>/404.html</loc></url>
-<url><loc>/LICENSE.html</loc></url>
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
 <url><loc>/reference/anova_table_lm.html</loc></url>
 <url><loc>/reference/beta_test.html</loc></url>
 <url><loc>/reference/confint_sigma2.html</loc></url>
+<url><loc>/reference/estimated_parameter.html</loc></url>
 <url><loc>/reference/est_param.html</loc></url>
 <url><loc>/reference/est_param_2.html</loc></url>
-<url><loc>/reference/estimated_parameter.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/lack.fit.html</loc></url>
 <url><loc>/reference/lack_fit.html</loc></url>
